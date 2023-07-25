@@ -1,4 +1,3 @@
-import pytest as pytest
 import yaml
 import time
 from selenium import webdriver

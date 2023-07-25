@@ -16,7 +16,7 @@ class FilterPageLocators:
             "assert_price_input": '//label[text()="حداکثر"]',
             "price_max_btn": '(//div[@id="khesht-2"]//button[@class="kt-select-field kt-select-field--small kt-select-field--normal"])[2]',
             "search_input": '//div[contains(@class,"kt-select-search")]//input[@placeholder="جستجو"]',
-            "search_result_list": '//ul[@class="kt-select-option-list kt-select-option-list--small"]',
+            "result_list_filter": '//ul[@class="kt-select-option-list kt-select-option-list--small"]',
             "immediate_btn": '//div[@class="filter-field--inline-d844c filter-field-c0991 filter-field__urgent"]',
 
             "filter_box": '//div[@class="browse-sidebar-ec193"]',
@@ -24,6 +24,8 @@ class FilterPageLocators:
             "assert_scroll": '//img[@alt="نشان نماد تجارت الکترونیکی"]',
             "assert_kilometers_input": '(//label[text()="تا"])[2]',
             "kilometers_max_btn": '(//div[@id="khesht-10"]//button[@class="kt-select-field kt-select-field--small kt-select-field--normal"])[2]',
+
+            "result_list_search": '//div[contains(@class,"browse-post-list-")]'
         }
 
     def __getitem__(self, index):

@@ -1,8 +1,6 @@
 import time
 
-from selenium.common import TimeoutException, NoSuchElementException
 from selenium.webdriver import ActionChains, Keys
-from src.logs_config.test_logger import logger
 from src.config.conftest import BasePage
 from src.apps.divar.page.filter_page.filter_page_locators import FilterPageLocators
 from selenium.webdriver.common.by import By
@@ -39,7 +37,7 @@ class FilterPage(BasePage):
         self.driver.find_element(By.XPATH, self.locator['search_input']).send_keys(input_data)
 
     def click_search_result_list(self, input_data):
-        elements = self.driver.find_elements(By.XPATH, self.locator['search_result_list'])
+        elements = self.driver.find_elements(By.XPATH, self.locator['result_list_filter'])
 
         for element in elements:
             # persian_price = digits.en_to_fa(price)
@@ -60,3 +58,13 @@ class FilterPage(BasePage):
 
     def scroll_(self):
         self.driver.execute_script("window.scrollTo(0,3500)")
+
+    def select_one_result(self):
+        elements = self.driver.find_elements(By.XPATH, self.locator['result_list_search'])
+        if elements is not None:
+            print(f"list: {elements}")
+            for element in elements:
+                element.click()
+                break
+        else:
+            assert False

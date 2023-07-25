@@ -106,5 +106,12 @@ class TestFilter(BaseTest):
         filter_page.click_search_result_list(self.read_data_device()['kilometers'])
         logger.info('*** Search result is clicking ***')
 
+    def test_06_select_one_result(self):
+        filter_page = FilterPage(self.driver)
+        time.sleep(1)
+
+        filter_page.select_one_result()
+        logger.info('*** Select One result is clicking ***')
+
         time.sleep(5)
-        logger.info('********************** End login ************************')
+        logger.info('********************** End Testing ************************')
