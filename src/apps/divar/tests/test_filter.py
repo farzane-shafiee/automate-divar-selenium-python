@@ -59,10 +59,10 @@ class TestFilter(BaseTest):
         filter_page.click_price_max_btn()
         logger.info('*** Max price is clicking ***')
 
-        filter_page.insert_search_input("۲۰۰")
+        filter_page.insert_search_input(self.read_data_device()['price'])
         logger.info('*** Insert price in search box is success ***')
 
-        filter_page.click_search_result_list("۲۰۰")
+        filter_page.click_search_result_list(self.read_data_device()['price'])
         logger.info('*** Search result is clicking ***')
 
     def test_03_immediate_filter_clicking(self):
@@ -94,10 +94,10 @@ class TestFilter(BaseTest):
         filter_page.click_kilometers_max_btn()
         logger.info('*** Max kilometers is clicking ***')
 
-        filter_page.insert_search_input("۵۰")
+        filter_page.insert_search_input(self.read_data_device()['kilometers'])
         logger.info('*** Insert kilometers in search box is success ***')
 
-        filter_page.click_search_result_list("۵۰")
+        filter_page.click_search_result_list(self.read_data_device()['kilometers'])
         logger.info('*** Search result is clicking ***')
 
         time.sleep(5)

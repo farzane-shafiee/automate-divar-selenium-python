@@ -1,3 +1,4 @@
+import pytest as pytest
 import yaml
 import time
 from selenium import webdriver
@@ -26,7 +27,6 @@ class BaseTest:
     def teardown_class(cls):
         cls.driver.close()
 
-    @classmethod
     def read_data_device(cls):
         """
         Read data from YAML file and return a Json.
