@@ -44,7 +44,6 @@ class TestFilter(BaseTest):
 
         assert filter_page.find_current_url() == 'https://divar.ir/s/tehran/auto'
         logger.info('*** Auto button is clicking ***')
-        time.sleep(2)
 
     def test_02_price_clicking(self):
 
@@ -52,7 +51,10 @@ class TestFilter(BaseTest):
 
         filter_page.click_price_btn()
         logger.info('*** price button is clicking ***')
-        time.sleep(1)
+
+        filter_page.wait_visibility_of_element_located_by_xpath(
+            self.wait, filter_page.locator['assert_price_input']
+        )
 
         filter_page.click_price_max_btn()
         logger.info('*** Max price is clicking ***')
@@ -78,24 +80,25 @@ class TestFilter(BaseTest):
 
     def test_04_kilometers_clicking(self):
         filter_page = FilterPage(self.driver)
-        time.sleep(2)
-        # self.wait.until(
-        #     EC.url_contains('https://divar.ir/s/tehran/auto?price=-200000000')
-        # )
-        #
-        # assert filter_page.find_current_url() == 'https://divar.ir/s/tehran/auto?price=-200000000'
+
+        filter_page.scroll_by_id_locator(filter_page.locator['kilometers_btn'])
+        logger.info('*** Scroll to Kilometers Filter ***')
 
         filter_page.click_kilometers_btn()
         logger.info('*** Clicking Kilometers Filter ***')
-        time.sleep(2)
+
+        filter_page.wait_visibility_of_element_located_by_xpath(
+            self.wait, filter_page.locator['assert_kilometers_input']
+        )
+
         filter_page.click_kilometers_max_btn()
         logger.info('*** Max kilometers is clicking ***')
-        #
-        # filter_page.insert_search_input("۵۰")
-        # logger.info('*** Insert kilometers in search box is success ***')
-        #
-        # filter_page.click_search_result_list("۵۰")
-        # logger.info('*** Search result is clicking ***')
 
-        time.sleep(2)
+        filter_page.insert_search_input("۵۰")
+        logger.info('*** Insert kilometers in search box is success ***')
+
+        filter_page.click_search_result_list("۵۰")
+        logger.info('*** Search result is clicking ***')
+
+        time.sleep(5)
         logger.info('********************** End login ************************')

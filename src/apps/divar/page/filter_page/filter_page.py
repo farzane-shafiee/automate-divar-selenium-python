@@ -44,20 +44,7 @@ class FilterPage(BasePage):
         self.driver.find_element(By.XPATH, self.locator['immediate_btn']).click()
 
     def click_kilometers_btn(self):
-        # try:
-        actions = ActionChains(self.driver)
-        kilometers_btn = self.driver.find_element(By.XPATH, self.locator['kilometers_btn'])
-            # filter_box = self.driver.find_element(By.XPATH, self.locator['filter_box'])
-            #
-        actions.move_to_element(kilometers_btn)
-        actions.send_keys(Keys.END).perform()
-        time.sleep(1)
-            # kilometers_btn = self.driver.find_element(By.XPATH, self.locator['kilometers_btn'])
-            # actions.move_to_element(kilometers_btn).click().perform()
-        kilometers_btn.click()
-            # self.driver.find_element(By.XPATH, self.locator['kilometers_btn']).click()
-        # except NoSuchElementException as e:
-        #     logger.error(f'Error is {e}')
+        self.driver.find_element(By.ID, self.locator['kilometers_btn']).click()
 
     def click_kilometers_max_btn(self):
         self.driver.find_element(By.XPATH, self.locator['kilometers_max_btn']).click()

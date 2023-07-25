@@ -1,5 +1,8 @@
 import yaml
+import time
 from selenium import webdriver
+from selenium.common import NoSuchElementException
+from selenium.webdriver import ActionChains, Keys
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
@@ -9,7 +12,7 @@ class BaseTest:
     driver = webdriver.Chrome()
     driver.implicitly_wait(10)
     BASE_URL = "https://divar.ir/s/tehran"
-    wait = WebDriverWait(driver, 10)
+    wait = WebDriverWait(driver, 30)
 
     @classmethod
     def setup_class(cls):
@@ -87,3 +90,15 @@ class BasePage:
 
     def find_current_url(self):
         return self.driver.current_url
+
+    def scroll_by_id_locator(self, locator):
+
+        try:
+            actions = ActionChains(self.driver)
+            element = self.driver.find_element(By.ID, locator)
+
+            actions.move_to_element(element)
+            actions.send_keys(Keys.END).perform()
+            time.sleep(1)
+        except NoSuchElementException as e:
+            raise e
