@@ -7,6 +7,9 @@ class FilterPageLocators:
         self.locators = {
             "assert_page": '(//h2[@class="kt-post-card__title"])[1]',
             "assert_page_label": '//*[text()=" دیوار من "]',
+
+            "search_box": '//form[@class="search-bar__input-form"]//input[@type="text"]',
+
             "vehicles_btn": '//*[@href="/s/tehran/vehicles"]',
             "auto_btn": '//*[@href="/s/tehran/auto" and text()="خودرو"]',
             "price_btn": 'khesht-3',
@@ -20,9 +23,7 @@ class FilterPageLocators:
             "kilometers_btn": 'khesht-11',
             "assert_scroll": '//img[@alt="نشان نماد تجارت الکترونیکی"]',
             "assert_kilometers_input": '(//label[text()="تا"])[2]',
-            # "kilometers_btn": '//*[@id="khesht-13"]',
             "kilometers_max_btn": '(//div[@id="khesht-10"]//button[@class="kt-select-field kt-select-field--small kt-select-field--normal"])[2]',
-            # "search_input_kilometers": '//div[contains(@class,"kt-select-search")]//input[@placeholder="جستجو"]',
         }
 
     def __getitem__(self, index):

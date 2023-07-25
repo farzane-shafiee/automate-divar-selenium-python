@@ -14,6 +14,15 @@ class FilterPage(BasePage):
         self.locator = FilterPageLocators()
         super().__init__(driver)
 
+    def click_search_box(self, search_input):
+        actions = ActionChains(self.driver)
+
+        element = self.driver.find_element(By.XPATH, self.locator['search_box'])
+        element.send_keys(search_input)
+
+        actions.move_to_element(element)
+        actions.send_keys(Keys.ENTER).perform()
+
     def click_vehicles_btn(self):
         self.driver.find_element(By.XPATH, self.locator['vehicles_btn']).click()
 
