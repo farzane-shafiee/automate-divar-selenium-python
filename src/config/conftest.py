@@ -16,9 +16,6 @@ class BaseTest:
 
     @classmethod
     def setup_class(cls):
-        """
-        Remote and connect to device_data.
-        """
         cls.driver.get(cls.BASE_URL)
         cls.driver.maximize_window()
 
@@ -91,7 +88,9 @@ class BasePage:
         return self.driver.current_url
 
     def scroll_by_id_locator(self, locator):
-
+        """
+        Scroll the element by id locator.
+        """
         try:
             actions = ActionChains(self.driver)
             element = self.driver.find_element(By.ID, locator)

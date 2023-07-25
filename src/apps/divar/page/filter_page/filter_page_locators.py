@@ -1,7 +1,7 @@
 
 class FilterPageLocators:
     """
-    تمام المنت های مربوط به سرصفحه در این کلاس قرار دارد
+    All locators in page.
     """
     def __init__(self):
         self.locators = {
@@ -9,13 +9,17 @@ class FilterPageLocators:
             "assert_page_label": '//*[text()=" دیوار من "]',
 
             "search_box": '//form[@class="search-bar__input-form"]//input[@type="text"]',
+            "assert_search_box": '//div[@class="kt-search-suggestion-row__title kt-text-truncate kt-body kt-body--sm"]',
 
-            "vehicles_btn": '//*[@href="/s/tehran/vehicles"]',
-            "auto_btn": '//*[@href="/s/tehran/auto" and text()="خودرو"]',
+            "vehicles_btn": '//*[contains(@href,"/s/tehran/vehicles")]',
+            "auto_btn": '//*[contains(@href,"/s/tehran/auto") and text()="خودرو"]',
             "price_btn": 'khesht-3',
             "assert_price_input": '//label[text()="حداکثر"]',
             "price_max_btn": '(//div[@id="khesht-2"]//button[@class="kt-select-field kt-select-field--small kt-select-field--normal"])[2]',
             "search_input": '//div[contains(@class,"kt-select-search")]//input[@placeholder="جستجو"]',
+
+            "assert_delete_price_box": '(//span[text()="حذف" and @class="kt-clear-section__title"])[1]',
+
             "result_list_filter": '//ul[@class="kt-select-option-list kt-select-option-list--small"]',
             "immediate_btn": '//div[@class="filter-field--inline-d844c filter-field-c0991 filter-field__urgent"]',
 
@@ -25,7 +29,10 @@ class FilterPageLocators:
             "assert_kilometers_input": '(//label[text()="تا"])[2]',
             "kilometers_max_btn": '(//div[@id="khesht-10"]//button[@class="kt-select-field kt-select-field--small kt-select-field--normal"])[2]',
 
-            "result_list_search": '//div[contains(@class,"browse-post-list-")]'
+            "assert_delete_kilometers_box": '(//span[text()="حذف" and @class="kt-clear-section__title"])[2]',
+
+            "result_list_search": '//div[contains(@class,"browse-post-list-")]',
+            "assert_select_one_item": '//button[contains(@class,"get-contact") and //span[text()="اطلاعات تماس"]]'
         }
 
     def __getitem__(self, index):
