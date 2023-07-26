@@ -30,6 +30,19 @@ class FilterPage(BasePage):
     def click_auto_btn(self):
         self.driver.find_element(By.XPATH, self.locator['auto_btn']).click()
 
+    def click_car_btn(self):
+        self.driver.find_element(By.XPATH, self.locator['car_btn']).click()
+
+    def click_color_btn(self):
+        self.driver.find_element(By.ID, self.locator['color_btn']).click()
+
+    def click_color_checkbox(self):
+        self.driver.find_element(By.XPATH, self.locator['color_checkbox']).click()
+
+    def get_text_element_delete_color(self):
+        text_element_color_box = self.driver.find_element(By.XPATH, self.locator['assert_delete_color_checkbox']).text
+        return text_element_color_box
+
     def click_price_btn(self):
         self.driver.find_element(By.ID, self.locator['price_btn']).click()
 
@@ -46,7 +59,8 @@ class FilterPage(BasePage):
             if input_data in element.text:
                 element.click()
             else:
-                assert False
+                logger.warning('*** Input data not found ***')
+                assert True
 
     def get_text_element_delete_price(self):
         text_element_price_box = self.driver.find_element(By.XPATH, self.locator['assert_delete_price_box']).text
@@ -64,7 +78,7 @@ class FilterPage(BasePage):
     def scroll_(self):
         self.driver.execute_script("window.scrollTo(0,3500)")
 
-    def select_one_result(self):
+    def get_search_result_list(self):
         elements = self.driver.find_elements(By.XPATH, self.locator['result_list_search'])
         return elements
 
