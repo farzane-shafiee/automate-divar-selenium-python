@@ -32,7 +32,7 @@ class FilterPageLocators:
             "kilometers_btn": 'khesht-15',
             "assert_scroll": '//img[@alt="نشان نماد تجارت الکترونیکی"]',
             "assert_kilometers_input": '(//label[text()="تا"])[2]',
-            "kilometers_max_btn": '(//div[@id="khesht-14"]//button[@class="kt-select-field kt-select-field--small kt-select-field--normal"])[2]',
+            "kilometers_max_btn": '(//div[@id="khesht-14"]//button[@class="kt-select-field kt-select-field--small kt-select-field--normal"])[1]',
             "assert_delete_kilometers_box": '(//span[text()="حذف" and @class="kt-clear-section__title"])[3]',
 
             "result_list_search": '//div[contains(@class,"browse-post-list-")]',

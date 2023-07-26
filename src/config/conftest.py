@@ -23,15 +23,11 @@ class BaseTest:
     def teardown_class(cls):
         cls.driver.close()
 
+    @classmethod
     def read_data_device(cls):
         """
         Read data from YAML file and return a Json.
         """
-        # cwd = os.getcwd()  # Get the current working directory (cwd)
-        # files = os.listdir(cwd)  # Get all the files in that directory
-        # print("Files in %r: %s" % (cwd, files))
-
-        # os.chdir(r'/home/farzaneh/project/test-UIJet/src/pages/login_page/')
         with open('data/input_data.yml') as file:
             yaml_file = yaml.safe_load(file)
             return yaml_file
