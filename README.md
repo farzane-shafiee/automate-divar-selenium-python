@@ -10,6 +10,7 @@ This test script allows you to perform various actions on the Divar website usin
 4. Logging: For managing and storing logs during test execution.
    Follow the path below to see the logs: src/logs_config/logs.log
 5. YAML: For managing input data in a structured way.
+   To change the test input data, you can edit the yaml file in the following path: src/data/input_data.yml
 
 **Installation:**
 
