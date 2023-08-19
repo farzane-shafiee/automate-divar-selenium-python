@@ -31,9 +31,9 @@ class TestFilter(BaseTest):
             EC.url_contains(f"https://divar.ir/s/tehran?q={self.read_data_device()['search_input']}")
         )  # Wait for the URL.
 
-        assert f"https://divar.ir/s/tehran?q={self.read_data_device()['search_input']}",\
+        assert f"https://divar.ir/s/tehran?q={self.read_data_device()['search_input']}" == \
             filter_page.find_current_url()
-        assert self.read_data_device()['search_input'], filter_page.get_text_element_search_box_result()
+        assert self.read_data_device()['search_input'] == filter_page.get_text_element_search_box_result()
         time.sleep(2)
 
     def test_02_category_clicking(self):
@@ -54,7 +54,7 @@ class TestFilter(BaseTest):
             EC.url_contains(f"https://divar.ir/s/tehran/car?q={self.read_data_device()['search_input']}")
         )  # Wait for the URL.
 
-        assert f"https://divar.ir/s/tehran/car?q={self.read_data_device()['search_input']}",\
+        assert f"https://divar.ir/s/tehran/car?q={self.read_data_device()['search_input']}" == \
             filter_page.find_current_url()
         logger.info('*** Auto button is clicking ***')
 
@@ -71,7 +71,7 @@ class TestFilter(BaseTest):
         filter_page.click_color_checkbox()
         logger.info('*** Color checkbox is clicking ***')
 
-        assert filter_page.get_text_element_delete_color(), "حذف"
+        assert filter_page.get_text_element_delete_color() == "حذف"
 
     def test_04_price_clicking(self):
 
@@ -92,7 +92,7 @@ class TestFilter(BaseTest):
 
         filter_page.click_search_result_list(self.read_data_device()['price'])
 
-        assert filter_page.get_text_element_delete_price(), "حذف"
+        assert filter_page.get_text_element_delete_price() == "حذف"
         logger.info('*** Search result is clicking ***')
 
     def test_05_kilometers_clicking(self):
@@ -116,7 +116,7 @@ class TestFilter(BaseTest):
 
         filter_page.click_search_result_list(self.read_data_device()['kilometers'])
 
-        assert filter_page.get_text_element_delete_kilometers(), "حذف"
+        assert filter_page.get_text_element_delete_kilometers() == "حذف"
         logger.info('*** Search result is clicking ***')
 
     def test_06_immediate_filter_clicking(self):
@@ -138,7 +138,7 @@ class TestFilter(BaseTest):
                 if "پیشنهاد جستجوی جدید" not in element.text:
                     element.click()
                     logger.info('*** Select One result is clicking ***')
-                    assert filter_page.assert_select_one_item(), "اطلاعات تماس"
+                    assert filter_page.assert_select_one_item() == "اطلاعات تماس"
                 else:
                     logger.warning('*** There is no card in the search result ***')
                     assert True
